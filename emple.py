@@ -1,4 +1,5 @@
 import random
+
 import matplotlib.pyplot as plt
 
 class Lapin:
@@ -37,7 +38,7 @@ class Jardin:
                 self.carottes -= 1
         self.lapins = [lapin for lapin in self.lapins if lapin.est_vivant()]
         if len(self.lapins) >= 2 and all(lapin.peut_se_reproduire() for lapin in self.lapins):
-            self.lapins.extend(Lapin() for _ in range(6))
+            self.lapins.extend(Lapin() for _ in range(random.randint(1, 6)))  # Use random.randint to determine the number of new rabbits
         self.population_lapins.append(len(self.lapins))
         self.population_carottes.append(self.carottes)
 
